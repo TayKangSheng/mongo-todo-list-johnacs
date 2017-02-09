@@ -3,6 +3,45 @@ const readline = require('readline')
 const rl = readline.createInterface(process.stdin, process.stdout)
 const prefix = '> '
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/todosdb')
+mongoose.Promise = global.Promise
+
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+  console.log('we are connected')
+})
+
+todos.create({
+  name: 'Feed fish',
+  description: 'buy fish food to feed fish',
+  completed: false
+})
+
+todos.create({
+  name: 'Walk dog',
+  description: 'do by midnight',
+  completed: false
+})
+
+todos.create({
+  name: 'Buy shampoo',
+  description: 'did not wash hair for a week because ran out of shampoo',
+  completed: false
+})
+
+// todos.list()
+//
+// todos.show('589c45eef8d22c35f1e4b5d6')
+
+// todos.update('589c45eef8d22c35f1e4b5d6', {name:'Buy bugs chocolate',description:'I love bugs',completed: true})
+
+// todos.destroy('589c45eef8d22c35f1e4b5d6')
+
+// todos.destroyAll()
+
+
 // This helper function simply console logs all of the supported commands
 function displayHelp () {
   console.log('Please input one of the following commands')
