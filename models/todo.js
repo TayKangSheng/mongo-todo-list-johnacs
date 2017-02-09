@@ -3,9 +3,9 @@
 const mongoose = require('mongoose')
 
 const todoSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  completed: Boolean
+  name: {type: String, min:5, default:'Untitled task', required:true},
+  description: {type: String, default: 'my task'},
+  completed: {type: Boolean, default: false}
 })
 
 const toDo = mongoose.model('todo', todoSchema)

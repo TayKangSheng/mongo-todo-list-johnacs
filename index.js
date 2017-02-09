@@ -26,9 +26,7 @@ todos.create({
 })
 
 todos.create({
-  name: 'Buy shampoo',
-  description: 'did not wash hair for a week because ran out of shampoo',
-  completed: false
+  name: 'Buy shampoo'
 })
 
 // todos.list()
